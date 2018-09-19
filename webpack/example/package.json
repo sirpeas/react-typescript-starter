@@ -4,22 +4,37 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:prod": "./node_modules/.bin/webpack --config ./config/webpack/webpack.config.prod.js",
+    "build:dev": "./node_modules/.bin/webpack --config ./config/webpack/webpack.config.dev.js",
+    "watch": "./node_modules/.bin/webpack-dev-server --config ./config/webpack/webpack.config.dev.js"
   },
   "author": "Patryk Peas",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.1.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
-    "@babel/preset-stage-0": "^7.0.0",
     "@babel/preset-typescript": "^7.1.0",
-    "@types/react": "^16.4.14",
-    "@types/react-dom": "^16.0.7",
+    "babel-loader": "^8.0.2",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^1.0.0",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.3",
+    "style-loader": "^0.23.0",
     "typescript": "^3.0.3",
-    "webpack": "^4.19.1"
+    "url-loader": "^1.1.1",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.8",
+    "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "@types/react": "^16.4.14",
+    "@types/react-dom": "^16.0.7",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
   }

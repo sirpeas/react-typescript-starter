@@ -6,11 +6,14 @@ Go to desired folder that will contain project files.
 
 Follow steps to initiate npm module
 
-2. `npm i -D @babel/core @babel/preset-env @babel/preset-typescript @babel/preset-react @babel/preset-stage-0 typescript @types/react @types/react-dom webpack`
+
+2. `npm i -D @babel/core @babel/preset-env @babel/preset-typescript @babel/preset-react @babel/plugin-proposal-class-properties @babel/plugin-proposal-object-rest-spread typescript webpack webpack-cli webpack-dev-server webpack-merge`
 
 You can additionally install typescript globally for easier usage
 
-3. `npm i react react-dom`
+
+3. `npm i react react-dom @types/react @types/react-dom`
+
 
 4. `touch .gitignore` and fill it up with:
 
@@ -19,23 +22,23 @@ You can additionally install typescript globally for easier usage
 /dist
 ```
 
+
 5. `touch .babelrc` and fill it up with:
 
-```js
+```json
 {
   "presets": [
-    "@babel/preset-react",
-    "@babel/preset-typescript",
-    [
-      "@babel/preset-env",
-      {
-        "modules": false
-      }
-    ]
+    "@babel/react",
+    "@babel/typescript",
+    "@babel/env"
+  ],
+  "plugins": [
+    "@babel/proposal-class-properties",
+    "@babel/proposal-object-rest-spread"
   ]
 }
-
 ```
+
 
 6. `./node_modules/.bin/tsc --init` or `tsc --init`
 
@@ -53,7 +56,7 @@ Generate basic tsconfig file then uncomment and modify:
 - `"outDir": "./dist"`
 - `"paths": {}` here you are defining aliases used in typescript in key/value structure use your own structure or check example
 - `"sourceMap": true`
-- `"target": "es5"`
+- `"target": "esnext"`
 - add `"exclude": ["node_modules", "dist"],` those are must to exclude, if you write tests exclude them too
 - add `"compileOnSave": true`
 
@@ -62,7 +65,10 @@ Generate basic tsconfig file then uncomment and modify:
 
 Create `src` and `config/webpack` directories. Second directory will contain 3 files for webpack configuration. Webpack will be configured in JavaScript.
 
-8. Configure `Webpack` for your needs, install needed loaders, check example.
+
+8. `npm i -D html-webpack-plugin clean-webpack-plugin mini-css-extract-plugin babel-loader style-loader css-loader file-loader url-loader`
+
+Configure `Webpack` for your needs, install needed loaders, check example if you need help.
 
 
-9. Start coding in React on Typescript
+9. Start coding in React on Typescript :)
