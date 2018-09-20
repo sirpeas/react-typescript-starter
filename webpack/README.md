@@ -54,6 +54,7 @@ Generate basic tsconfig file then uncomment and modify:
 - `"noUnusedLocals": true`
 - `"noUnusedParameters": true`
 - `"outDir": "./dist"`
+- `"noEmit": true`
 - `"paths": {}` here you are defining aliases used in typescript in key/value structure use your own structure or check example
 - `"sourceMap": true`
 - `"target": "esnext"`
@@ -61,7 +62,7 @@ Generate basic tsconfig file then uncomment and modify:
 - add `"compileOnSave": true`
 
 
-7. `mkdir src && mkdir config && cd config && mkdir webpack && cd webpack && touch webpack.base.js && touch webpack.dev.js && touch webpack.prod.js`
+7. `mkdir src && mkdir config && cd config && mkdir webpack && cd webpack && touch webpack.config.base.js && touch webpack.config.dev.js && touch webpack.config.prod.js`
 
 Create `src` and `config/webpack` directories. Second directory will contain 3 files for webpack configuration. Webpack will be configured in JavaScript.
 
@@ -69,6 +70,17 @@ Create `src` and `config/webpack` directories. Second directory will contain 3 f
 8. `npm i -D html-webpack-plugin clean-webpack-plugin mini-css-extract-plugin babel-loader style-loader css-loader file-loader url-loader`
 
 Configure `Webpack` for your needs, install needed loaders, check example if you need help.
+
+
+9. Add starting scripts to `package.json`
+
+```json
+"scripts": {
+  "build:prod": "./node_modules/.bin/webpack --config ./config/webpack/webpack.config.prod.js",
+  "build:dev": "./node_modules/.bin/webpack --config ./config/webpack/webpack.config.dev.js",
+  "watch": "./node_modules/.bin/webpack-dev-server --config ./config/webpack/webpack.config.dev.js"
+},
+```
 
 
 9. Start coding in React on Typescript :)
