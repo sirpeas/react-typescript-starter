@@ -47,8 +47,7 @@ Generate basic tsconfig file then uncomment and modify:
 - `"allowSyntheticDefaultImports": true`
 - `"experimentalDecorators": true`
 - `"emitDecoratorMetadata": true`
-- `"jsx": "react"`
-- `"lib": ["dom", "jsx"]`
+- `"lib": ["dom", "es2017"]`
 - `"module": "es6"` or `"module": "es2015"`
 - `"moduleResolution": "node"`
 - `"noUnusedLocals": true`
@@ -58,8 +57,6 @@ Generate basic tsconfig file then uncomment and modify:
 - `"paths": {}` here you are defining aliases used in typescript in key/value structure use your own structure or check example
 - `"sourceMap": true`
 - `"target": "esnext"`
-- add `"exclude": ["node_modules", "dist"],` those are must to exclude, if you write tests exclude them too
-- add `"compileOnSave": true`
 
 
 7. `mkdir src && mkdir config && cd config && mkdir webpack && cd webpack && touch webpack.config.base.js && touch webpack.config.dev.js && touch webpack.config.prod.js`

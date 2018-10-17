@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const devMode = process.env.NODE_ENV !== 'production';
 const srcPath = path.join(__dirname, '..', '..', 'src');
@@ -14,9 +15,14 @@ module.exports = {
       'node_modules',
     ],
     extensions: ['.ts', '.tsx', '.js'],
+    plugins: [
+      new TsconfigPathsPlugin({
+        configFile: path.join(__dirname, '..', '..', 'tsconfig.json'),
+      }),
+    ]
   },
   entry: {
-    app: path.join(srcPath, 'index.ts'),
+    app: path.join(srcPath, 'index.tsx'),
     vendor: ['react', 'react-dom'],
   },
   output: {
